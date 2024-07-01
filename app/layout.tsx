@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
+import { Header } from "./Header";
 import "./globals.css";
 
 const fontHeading = IBM_Plex_Mono({
@@ -23,18 +24,21 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body
-        className={cn("antialiased", fontHeading.variable, fontBody.variable)}
+        className={cn(
+          "relative antialiased",
+          fontHeading.variable,
+          fontBody.variable
+        )}
       >
-        <main>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
