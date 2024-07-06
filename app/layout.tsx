@@ -39,6 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         >
           <Header />
           {children}
+          <div className="h-[64px]" />
           <Footer />
         </ThemeProvider>
       </body>

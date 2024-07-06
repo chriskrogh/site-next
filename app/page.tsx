@@ -1,5 +1,3 @@
-import { cn } from "@/lib/utils";
-
 import { About } from "./_sections/About";
 import { Blog } from "./_sections/Blog";
 import { Intro } from "./_sections/Intro";
@@ -11,7 +9,7 @@ const SHOW_BLOG_SECTION = process.env.NODE_ENV === "development";
 const Home: React.FC = () => {
   return (
     <main className={CONTAINER_CLASSNAME}>
-      <div className={cn(CONTENT_CONTAINER_CLASSNAME, "mb-[64px]")}>
+      <div className={CONTENT_CONTAINER_CLASSNAME}>
         <Intro />
         <div className="h-10" />
         <Work />
