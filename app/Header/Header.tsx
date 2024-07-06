@@ -3,6 +3,7 @@ import NextLink from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+import { SHOW_BLOG_SECTION } from "../consts";
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "../styles";
 
 import { ThemeToggle } from "./ThemeToggle";
@@ -19,7 +20,7 @@ export const Header: React.FC = () => {
         <div className="flex gap-6 py-6">
           <Link href="/">home</Link>
           <Link href="/work">work</Link>
-          <Link href="/blog">blog</Link>
+          {SHOW_BLOG_SECTION && <Link href="/blog">blog</Link>}
           <Link href="/about">about</Link>
         </div>
         <ThemeToggle />
