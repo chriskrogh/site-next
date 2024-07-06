@@ -1,26 +1,28 @@
-import Image from "next/image";
+import { cn } from "@/lib/utils";
 
+import { About } from "./_sections/About";
+import { Blog } from "./_sections/Blog";
+import { Intro } from "./_sections/Intro";
+import { Work } from "./_sections/Work";
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "./styles";
+
+const SHOW_BLOG_SECTION = process.env.NODE_ENV === "development";
 
 const Home: React.FC = () => {
   return (
     <main className={CONTAINER_CLASSNAME}>
-      <div className={CONTENT_CONTAINER_CLASSNAME}>
-        <h2 className="mb-6">Hi there 👋</h2>
-        <p className="mb-2">
-          I&apos;m Chris Krogh and I like building cool things. I currently work
-          as a Senior Frontend Engineer at{" "}
-          <span>
-            <a
-              href="https://www.faire.com"
-              target="_blank"
-              className="inline-block -mb-2 cursor-pointer"
-            >
-              <Image src="/faire.svg" width={89} height={24} alt="Faire logo" />
-            </a>
-          </span>{" "}
-          where I help build the future of wholesale.
-        </p>
+      <div className={cn(CONTENT_CONTAINER_CLASSNAME, "mb-[64px]")}>
+        <Intro />
+        <div className="h-10" />
+        <Work />
+        {SHOW_BLOG_SECTION ? (
+          <>
+            <div className="h-10" />
+            <Blog />
+          </>
+        ) : null}
+        <div className="h-10" />
+        <About />
       </div>
     </main>
   );

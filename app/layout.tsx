@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
+import { Footer } from "./Footer";
 import { Header } from "./Header";
 import "./globals.css";
 
@@ -25,7 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body
         className={cn(
-          "relative antialiased",
+          "relative antialiased min-h-screen",
           fontHeading.variable,
           fontBody.variable
         )}
@@ -38,6 +39,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         >
           <Header />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

@@ -1,6 +1,8 @@
 import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
+import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "@/app/styles";
+
 import { Content } from "./Content";
 
 export const generateStaticParams = async () => {
@@ -19,9 +21,11 @@ const Page: React.FC<Props> = ({ params }) => {
   if (!post) notFound();
 
   return (
-    <div>
-      <Content code={post.body.code} />
-    </div>
+    <main className={CONTAINER_CLASSNAME}>
+      <div className={CONTENT_CONTAINER_CLASSNAME}>
+        <Content code={post.body.code} />
+      </div>
+    </main>
   );
 };
 
