@@ -1,13 +1,13 @@
-import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "@/app/styles";
+import { Content } from "@/components/Content";
 
-import { Content } from "./Content";
+import { getAllBlogPosts, getBlogPostSlug } from "./utils/post";
 
 export const generateStaticParams = async () => {
-  return allPosts.map((post) => ({
-    slug: post._raw.flattenedPath,
+  return getAllBlogPosts().map((post) => ({
+    slug: getBlogPostSlug(post),
   }));
 };
 
@@ -16,7 +16,9 @@ type Props = {
 };
 
 const Page: React.FC<Props> = ({ params }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+  const post = getAllBlogPosts().find(
+    (post) => getBlogPostSlug(post) === params.slug
+  );
 
   if (!post) notFound();
 
