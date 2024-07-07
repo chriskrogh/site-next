@@ -28,7 +28,7 @@ export const Work: React.FC = () => {
         <CardContent>
           <ul className="pl-4" style={{ listStyleType: "square" }}>
             <li className="mb-2 md:mb-0">
-              Lead several brand acquisition and order placement features
+              Led several brand acquisition and order placement features
             </li>
             <li className="mb-2 md:mb-0">
               Migrated our legacy React SPA codebase to hooks, react-query, and
