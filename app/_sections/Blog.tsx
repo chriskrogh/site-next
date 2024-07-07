@@ -20,7 +20,7 @@ export const Blog: React.FC = () => {
               {index !== 0 && <hr className="mb-2" />}
               <Link href={post.url}>
                 <h3>{post.title}</h3>
-                <p>{format(new Date(post.date), "PPP")}</p>
+                {post.date ? <p>{format(new Date(post.date), "PPP")}</p> : null}
               </Link>
               {index < allPosts.length - 1 && <div className="mb-2" />}
             </div>
