@@ -28,14 +28,13 @@ export const Work: React.FC = () => {
         <CardContent>
           <ul className="pl-4" style={{ listStyleType: "square" }}>
             <li className="mb-2 md:mb-0">
-              Led several brand acquisition and order placement features
+              Leading lots of features on our marketplace (and making it faster)
             </li>
             <li className="mb-2 md:mb-0">
-              Migrated our legacy React SPA codebase to hooks, react-query, and
-              NextJS
+              Migrating our React SPA codebase to hooks, react-query, and NextJS
             </li>
             <li>
-              Taught and mentored frontend engineers on React best practices
+              Teaching and mentoring frontend engineers on React best practices
             </li>
           </ul>
         </CardContent>
