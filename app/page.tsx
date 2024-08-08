@@ -2,7 +2,6 @@ import { About } from "./_sections/About";
 import { Blog } from "./_sections/Blog";
 import { Intro } from "./_sections/Intro";
 import { Work } from "./_sections/Work";
-import { SHOW_BLOG_SECTION } from "./consts";
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "./styles";
 
 const Home: React.FC = () => {
@@ -12,12 +11,8 @@ const Home: React.FC = () => {
         <Intro />
         <div className="h-10" />
         <Work />
-        {SHOW_BLOG_SECTION ? (
-          <>
-            <div className="h-10" />
-            <Blog />
-          </>
-        ) : null}
+        <div className="h-10" />
+        <Blog />
         <div className="h-10" />
         <About />
       </div>

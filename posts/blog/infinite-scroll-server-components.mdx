@@ -1,0 +1,182 @@
+---
+title: Infinite Scroll Server Components with Next.js and react-query
+date: 2024-08-05T17:00:00Z
+---
+
+### Context
+
+<br />
+
+<u>[Server components](https://react.dev/reference/rsc/server-components)</u> are
+a great tool that allow us to render our UI closer to our data and send less JS
+and JSON down to browsers.
+
+<br />
+
+The programming model for rendering from the server -> the client is quite seamless, but if our UI is meant to be rendered
+on the **server only** then sometimes we need to reach back out from the client to the server to render more content
+_without_ reloading the page.
+
+<br />
+
+This typically happens when the experience that we're building resembles a long list or a feed of some sort since we may not want to fetch & render
+everything upfront. For the sake of example, let's say that this was the UI that we want:
+
+<br />
+
+<img
+  src="/blog/infinite-scroll-server-components/demo.gif"
+  className="w-full"
+/>
+
+<br />
+
+We have a list of heavy UI components that can only be rendered on the server, each of
+which has a client component child that can be used to refetch / invalidate the
+list. As the user scrolls, we want to render more of these components.
+
+<br />
+
+### Solution
+
+<br />
+
+The first idea that might come to mind when implementing something like this is to use a search param to keep track of the
+page number / cursor. However, each time the search param changes, Next.js loads the server component payload for the entire page
+(which becomes really large as the user scrolls). Not only that, but the user's scroll position is lost each time which jumps them back to the top.
+
+<br />
+
+Instead, we can use ✨<u>[server&nbsp;actions](https://react.dev/reference/rsc/server-actions)</u>✨ (another React feature that Next.js implements) to
+fetch & render server components on demand.
+
+<br />
+
+First off, we can fetch the first page of data, render it to some _Item_ s on the server, and pass the rendered components down to a client _List_ component.
+
+<br />
+
+```tsx
+// page.tsx
+
+export default async function Home() {
+  // Fetch the initial data
+  const data = await fetchData({ pageNumber: 0 });
+
+  // Render the initial items
+  const initialItems = data.map((i) => <ListItem key={i} item={i} />);
+
+  // Pass the initial items down to the client
+  return (
+    <main className="flex flex-col p-8 items-center">
+      <List initialData={{ payload: initialItems, pageNumber: 0 }} />
+    </main>
+  );
+}
+```
+
+<br />
+
+_List_ mounts an infinite query that caches **rendered components**. We can seed the query cache with the initial items that were rendered on the server.
+When the user scrolls past a certain point, we can use a server action to reach back out to the server to fetch and render more items.
+
+```tsx
+// List.tsx
+
+"use client";
+
+export const List: React.FC<Props> = ({ initialData }) => {
+  // Cache the rendered RSC payloads using react-query.
+  const { data, fetchNextPage } = useInfiniteQuery({
+    queryKey: ["list"],
+    queryFn: ({ pageParam }) => fetchItemsAction(pageParam),
+    initialPageParam: INITIAL_PAGE_NUMBER,
+    initialData: {
+      pages: [initialData],
+      pageParams: [INITIAL_PAGE_NUMBER],
+    },
+    getNextPageParam: (lastPage) => {
+      if (!lastPage) return undefined;
+      return lastPage.pageNumber + 1;
+    },
+  });
+
+  // When the last element comes into view, we fetch the next page
+  const { ref, inView } = useInView();
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [fetchNextPage, inView]);
+
+  // Flatten the pages into a single array of items
+  const items = useMemo(() => {
+    return flatMap(data?.pages, (page) => page.payload);
+  }, [data?.pages]);
+
+  return (
+    <>
+      {items.map((item, index) => (
+        <Fragment key={index}>
+          {item} {/* <- ReactNodes rendered on the server! */}
+          {index === items.length - 3 && (
+            <div ref={ref} className="invisible" />
+          )}
+        </Fragment>
+      ))}
+    </>
+  );
+};
+```
+
+<br />
+
+The server action does exactly what you'd expect. It fetches the next page of data, renders the items, and returns them to the client.
+
+```tsx
+"use server";
+
+export const fetchItemsAction = async (pageNumber: number) => {
+  const data = await fetchData({ pageNumber });
+  const items = data.map((i) => <ListItem key={i} item={i} />);
+  return { payload: items, pageNumber };
+};
+```
+
+<br />
+
+Invalidating the list is also really easy. We can use <u>[queryClient.invalidateQueries](https://tanstack.com/query/latest/docs/framework/react/guides/query-invalidation)</u> to refetch pages of UI components.
+This will call the server actions sequentially (starting with the first page) to fetch the data and render the items.
+
+```tsx
+"use client";
+
+export const InvalidateButton: React.FC = () => {
+  const queryClient = useQueryClient();
+
+  const invalidateList = () =>
+    queryClient.invalidateQueries({
+      queryKey: ["list"],
+    });
+
+  return (
+    <button
+      className="p-1 m-0 border-2 border-blue-500 bg-none"
+      onClick={invalidateList}
+    >
+      invalidate
+    </button>
+  );
+};
+```
+
+<br />
+
+And that's it! We've implemented infinite scroll server components with Next.js and react-query.
+The user can scroll through the list and fetch more items without reloading the page.
+
+<br />
+
+For the full code, check out the <u>[GitHub repository](https://github.com/chriskrogh/server-action-infinite-scroll)</u>. Happy coding! 🚀
+
+<br />

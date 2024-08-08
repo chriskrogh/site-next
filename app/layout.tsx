@@ -24,6 +24,12 @@ const fontBody = IBM_Plex_Mono({
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"
+        />
+      </head>
       <body
         className={cn(
           "relative antialiased min-h-screen",
