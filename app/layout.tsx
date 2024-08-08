@@ -1,10 +1,10 @@
 import { IBM_Plex_Mono } from "next/font/google";
 
-import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { Providers } from "./Providers";
 import "./globals.css";
 
 const fontHeading = IBM_Plex_Mono({
@@ -37,17 +37,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           fontBody.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <Header />
           {children}
           <div className="h-[64px]" />
           <Footer />
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );

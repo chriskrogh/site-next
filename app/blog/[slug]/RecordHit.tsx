@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { hitAction } from "./_utils/hitAction";
+import { recordHitAction } from "./_utils/recordHitAction";
 
 type Props = {
   slug: string;
@@ -10,7 +10,7 @@ type Props = {
 
 export const RecordHit: React.FC<Props> = ({ slug }) => {
   useEffect(() => {
-    hitAction(slug);
+    recordHitAction(slug);
   }, [slug]);
   return null;
 };

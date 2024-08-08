@@ -2,6 +2,6 @@
 
 import { kv } from "@vercel/kv";
 
-export const hitAction = async (slug: string) => {
+export const recordHitAction = async (slug: string) => {
   await kv.incr(`hits:${slug}`);
 };
