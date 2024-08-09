@@ -1,15 +1,24 @@
 import { format } from "date-fns/format";
 import { notFound } from "next/navigation";
 
-import { getBlogPostSlug } from "@/app/_utils/post";
+import { getAllBlogPosts, getBlogPostSlug } from "@/app/_utils/post";
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "@/app/styles";
 import { Content } from "@/components/Content";
 
 import { RecordHit } from "./RecordHit";
-import { getAllBlogPosts } from "./_utils/post";
+
+const POSTS = getAllBlogPosts();
+
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+  const post = POSTS.find((post) => getBlogPostSlug(post) === params.slug);
+  return {
+    title: post?.title,
+    description: post?.description,
+  };
+};
 
 export const generateStaticParams = async () => {
-  return getAllBlogPosts().map((post) => ({
+  return POSTS.map((post) => ({
     slug: getBlogPostSlug(post),
   }));
 };
@@ -19,9 +28,7 @@ type Props = {
 };
 
 const Page: React.FC<Props> = ({ params }) => {
-  const post = getAllBlogPosts().find(
-    (post) => getBlogPostSlug(post) === params.slug
-  );
+  const post = POSTS.find((post) => getBlogPostSlug(post) === params.slug);
 
   if (!post) notFound();
 

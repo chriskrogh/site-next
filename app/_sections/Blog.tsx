@@ -18,7 +18,7 @@ export const Blog: React.FC = async () => {
       <Card>
         <CardContent className="p-6">
           {POSTS.map((post, index) => (
-            <div key={post._raw.flattenedPath}>
+            <div key={post._id}>
               {index > 0 && <hr className="mb-2" />}
               <BlogListItem post={post} />
               {index < POSTS.length - 1 && <div className="mb-2" />}

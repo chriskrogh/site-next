@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
         <div className="flex gap-6 py-6">
           <Link href="/">home</Link>
           <Link href="/work">work</Link>
-          {/* <Link href="/blog">blog</Link> */}
+          <Link href="/blog">blog</Link>
           <Link href="/about">about</Link>
         </div>
         <ThemeToggle />
