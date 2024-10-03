@@ -6,7 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 const MAX_POSTS = 3;
 const POSTS = allPosts
   .filter((post) => post._raw.flattenedPath.includes("blog"))
-  .slice(0, MAX_POSTS);
+  .slice(0, MAX_POSTS)
+  .sort((a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime());
 
 export const Blog: React.FC = async () => {
   return (
