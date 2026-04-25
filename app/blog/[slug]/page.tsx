@@ -1,8 +1,14 @@
 import { format } from "date-fns/format";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import type { ComponentType } from "react";
 
-import { getAllBlogPosts, getBlogPostSlug } from "@/app/_utils/post";
+import {
+  getAllBlogPosts,
+  getBlogPostBySlug,
+  getBlogPostSlug,
+} from "@/app/_utils/post";
+import { createBlogPostMetadata } from "@/app/_utils/seo";
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "@/app/styles";
 
 import { RecordHit } from "./RecordHit";
@@ -24,13 +30,21 @@ export const generateMetadata = async ({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) => {
+}): Promise<Metadata> => {
   const { slug } = await params;
-  const post = POSTS.find((post) => getBlogPostSlug(post) === slug);
-  return {
-    title: post?.title,
-    description: post?.description,
-  };
+  const post = getBlogPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: "Post not found",
+      robots: {
+        index: false,
+        follow: false,
+      },
+    };
+  }
+
+  return createBlogPostMetadata(post);
 };
 
 export const generateStaticParams = async () => {

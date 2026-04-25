@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
+
+import { createPageMetadata } from "@/app/_utils/seo";
+
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "../styles";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Work",
+  description:
+    "A snapshot of Chris Krogh's software engineering work at Faire, including product engineering, performance, React, and Next.js initiatives.",
+  path: "/work",
+  keywords: ["Faire", "software engineering work", "React", "Next.js"],
+});
 
 const Page: React.FC = () => {
   return (

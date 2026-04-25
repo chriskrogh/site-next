@@ -7,11 +7,12 @@ export type Post = {
   title?: string;
   description?: string;
   date?: string;
+  keywords?: string[];
 };
 
 const createPost = (
   flattenedPath: string,
-  metadata: Pick<Post, "title" | "description" | "date">
+  metadata: Pick<Post, "title" | "description" | "date" | "keywords">
 ): Post => ({
   _id: flattenedPath,
   _raw: {
@@ -21,6 +22,7 @@ const createPost = (
   title: metadata.title,
   description: metadata.description,
   date: metadata.date,
+  keywords: metadata.keywords,
 });
 
 export const allPosts: Post[] = [
@@ -32,12 +34,25 @@ export const allPosts: Post[] = [
     description:
       "Learn how to implement infinite scroll using server components and server actions in Next.js and react query. Optimize performance by fetching and rendering data on demand without page reloads, ensuring a seamless user experience. Perfect for long lists or feeds in React applications.",
     date: "2024-08-05T17:00:00Z",
+    keywords: [
+      "Next.js",
+      "React Server Components",
+      "server actions",
+      "react-query",
+      "infinite scroll",
+    ],
   }),
   createPost("blog/the-art-of-doing-more", {
     title: "The Art of Doing More",
     description:
       "Learn how to balance feature work with non-roadmap projects, enhance your engineering skills, and drive impact across your company. Discover strategies for managing expectations, aligning with company goals, and unlocking growth opportunities in your development career.",
     date: "2024-09-30T17:00:00Z",
+    keywords: [
+      "engineering career",
+      "software engineering",
+      "career growth",
+      "technical leadership",
+    ],
   }),
 ];
 
@@ -46,3 +61,6 @@ export const getBlogPostSlug = (post: Post) =>
 
 export const getAllBlogPosts = () =>
   allPosts.filter((post) => post._raw.flattenedPath.includes("blog/"));
+
+export const getBlogPostBySlug = (slug: string) =>
+  getAllBlogPosts().find((post) => getBlogPostSlug(post) === slug);
