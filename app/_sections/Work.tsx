@@ -40,7 +40,9 @@ export const Work: React.FC = () => {
         </CardContent>
         <CardFooter>
           <Button asChild>
-            <Link href="/work">Learn more</Link>
+            <Link href="/work" prefetch={false}>
+              Learn more
+            </Link>
           </Button>
         </CardFooter>
       </Card>

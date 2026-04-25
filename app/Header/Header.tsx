@@ -36,7 +36,9 @@ type LinkProps = {
 const Link: React.FC<LinkProps> = ({ href, children }) => {
   return (
     <Button variant="link" asChild className="p-0">
-      <NextLink href={href}>{children}</NextLink>
+      <NextLink href={href} prefetch={false}>
+        {children}
+      </NextLink>
     </Button>
   );
 };

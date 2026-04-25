@@ -1,8 +1,8 @@
-import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
-import { Content } from "@/components/Content";
+import { allPosts } from "@/app/_utils/post";
 import { cn } from "@/lib/utils";
+import Content from "@/posts/about.mdx";
 
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "../styles";
 
@@ -16,7 +16,7 @@ const Page: React.FC = () => {
   return (
     <main className={CONTAINER_CLASSNAME}>
       <div className={cn(CONTENT_CONTAINER_CLASSNAME, "mb-6")}>
-        <Content code={post.body.code} />
+        <Content />
         <Album />
       </div>
     </main>

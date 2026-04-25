@@ -1,6 +1,15 @@
-import { withContentlayer } from "next-contentlayer";
+import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  cacheComponents: true,
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+};
 
-export default withContentlayer(nextConfig);
+const withMDX = createMDX({
+  options: {
+    rehypePlugins: ["rehype-highlight"],
+  },
+});
+
+export default withMDX(nextConfig);

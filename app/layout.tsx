@@ -23,7 +23,7 @@ const fontBody = IBM_Plex_Mono({
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"

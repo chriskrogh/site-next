@@ -6,7 +6,7 @@ export const About: React.FC = () => {
       <p className="mb-4">
         If you want to learn a little more about me, check{" "}
         <span>
-          <Link href="/about" className="underline">
+          <Link href="/about" className="underline" prefetch={false}>
             this out
           </Link>
         </span>

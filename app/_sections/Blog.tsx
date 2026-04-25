@@ -1,11 +1,9 @@
-import { allPosts } from "contentlayer/generated";
-
 import { BlogListItem } from "@/app/_components/BlogListItem/BlogListItem";
+import { getAllBlogPosts } from "@/app/_utils/post";
 import { Card, CardContent } from "@/components/ui/card";
 
 const MAX_POSTS = 3;
-const POSTS = allPosts
-  .filter((post) => post._raw.flattenedPath.includes("blog"))
+const POSTS = getAllBlogPosts()
   .slice(0, MAX_POSTS)
   .sort((a, b) => new Date(b.date!).getTime() - new Date(a.date!).getTime());
 

@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../tailwind.config.ts";
+
+@import "tailwindcss";
 
 @layer base {
   :root {
@@ -74,10 +74,15 @@
     @apply bg-background text-foreground font-body;
   }
   h1 {
-    @apply font-heading scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+    @apply font-heading scroll-m-20 text-4xl font-extrabold tracking-tight;
+  }
+  @media (min-width: 64rem) {
+    h1 {
+      @apply text-5xl;
+    }
   }
   h2 {
-    @apply font-heading scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0;
+    @apply font-heading scroll-m-20 text-3xl font-semibold tracking-tight;
   }
   h3 {
     @apply font-heading scroll-m-20 text-2xl font-semibold tracking-tight;

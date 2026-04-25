@@ -1,8 +1,8 @@
 import type { Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -74,12 +74,12 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        heading: ["var(--font-heading)", ...fontFamily.mono],
-        body: ["var(--font-body)", ...fontFamily.mono],
+        heading: ["var(--font-heading)", ...defaultTheme.fontFamily.mono],
+        body: ["var(--font-body)", ...defaultTheme.fontFamily.mono],
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } satisfies Config;
 
 export default config;
