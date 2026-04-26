@@ -79,7 +79,7 @@ export const OgCard = ({
 }: OgCardProps) => (
   <div
     style={{
-      background: "#020617",
+      background: "#222222",
       color: "#f8fafc",
       display: "flex",
       flexDirection: "column",

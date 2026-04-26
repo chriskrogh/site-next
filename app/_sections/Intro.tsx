@@ -18,6 +18,19 @@ export const Intro: React.FC = () => {
         </span>{" "}
         where I help build the future of wholesale.
       </p>
+      <p className="mt-4">
+        Outside of Faire, I shipped{" "}
+        <span>
+          <Link
+            href="https://www.vin.gs"
+            target="_blank"
+            className="inline-block cursor-pointer underline"
+          >
+            Vings
+          </Link>
+        </span>
+        , a personal finance app for banking, crypto, and AI-native insights.
+      </p>
     </>
   );
 };
