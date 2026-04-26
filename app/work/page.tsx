@@ -40,11 +40,28 @@ const Page: React.FC = () => {
           <p>Feb, 2024 - now</p>
         </div>
         <p className="mb-4">
-          I&apos;m currently the lead frontend engineer on the order placement
-          team where I steer the implementation of cart and checkout features.
+          As a senior frontend engineer at Faire, I&apos;ve led high-leverage
+          performance work across cart, checkout, PDP, and logged-out
+          discovery. I&apos;ve shipped React Server Component migrations,
+          aggressive data prefetching, static generation infrastructure, and
+          React Compiler adoption that improved core page latency and
+          contributed measurable order-volume wins.
           <br />
-          <br />I also lead many speed initiatives to decrease page latency and
-          share my learnings and implementation strategies with the team.
+          <br />
+          I&apos;ve also helped modernize how Faire builds frontend software. I
+          drove the multi-year hooks and MobX migration across the finish line,
+          helped unlock Turbopack and the React Compiler, decomposed product
+          areas out of a deprecated monolith, improved high-traffic CI
+          pipelines, and shared patterns that let other teams move faster
+          without needing me in the room.
+          <br />
+          <br />
+          More recently, I&apos;ve been building the frontend foundation for
+          Faire&apos;s AI and Agentic Commerce work. I created infrastructure for
+          AI-powered prototypes and Faire&apos;s first ChatGPT app, explored
+          AI-assisted shopping experiences for search refinement and product
+          evaluation, and have spent the last four months shaping conversational
+          workflows for discovery, evaluation, and buying.
         </p>
 
         <div className="sm:flex justify-between items-end mb-3 mt-8">
@@ -52,28 +69,17 @@ const Page: React.FC = () => {
           <p>Apr, 2022 - Feb, 2024</p>
         </div>
         <p className="mb-4">
-          When I returned to Faire full-time, I hit the ground running on the
-          brand acquisition team where I helped build our referral feature and
-          dynamic landing pages.
+          When I returned full time, I helped turn Next.js from an exploration
+          into a core part of Faire&apos;s frontend infrastructure. I prototyped the
+          migration, designed localization and build tooling, and led Faire&apos;s
+          first server component page migration to prove the performance upside.
           <br />
-          <br />I also led the effort to migrate to{" "}
-          <span>
-            <a
-              href="https://react.dev/reference/react/hooks"
-              target="_blank"
-              className="underline"
-            >
-              React hooks
-            </a>
-          </span>{" "}
-          and drove the adoption of{" "}
-          <span>
-            <a href="https://nextjs.org" target="_blank" className="underline">
-              NextJS
-            </a>
-          </span>{" "}
-          to unlock performance wins and improve our codebase&apos;s
-          maintainability.
+          <br />
+          I also helped modernize Faire&apos;s React codebase through hooks,
+          react-query, migration tooling, dashboards, guides, and hundreds of PR
+          reviews. Alongside that platform work, I led major exclusivity
+          milestones and mentored engineers through the patterns that became the
+          foundation for faster product development.
         </p>
 
         <div className="sm:flex justify-between items-end mb-3 mt-8">

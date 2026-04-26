@@ -89,7 +89,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <Providers>
           <Header />
           {children}
-          <div className="h-[64px]" />
+          <div className="h-[128px]" />
           <Footer />
         </Providers>
       </body>

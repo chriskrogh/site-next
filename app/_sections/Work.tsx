@@ -39,16 +39,16 @@ export const Work: React.FC = () => {
           <CardContent>
             <ul className="pl-4" style={{ listStyleType: "square" }}>
               <li className="mb-2 md:mb-0">
-                Leading lots of features on our marketplace (and making it
-                faster)
+                Building Faire&apos;s AI and Agentic Commerce foundation with
+                AI-powered experiences for discovery, evaluation, and buying
               </li>
               <li className="mb-2 md:mb-0">
-                Migrating our React SPA codebase to hooks, react-query, and
-                NextJS
+                Drove frontend modernization through hooks, Turbopack, codebase
+                decomposition, and faster CI
               </li>
               <li>
-                Teaching and mentoring frontend engineers on React best
-                practices
+                Led marketplace speed work across the site using Server
+                Components, prefetching, and other resource optimizations
               </li>
             </ul>
           </CardContent>
