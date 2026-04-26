@@ -7,13 +7,14 @@ export const SITE_NAME = "Chris Krogh";
 export const AUTHOR_NAME = "Chris Krogh";
 export const TWITTER_HANDLE = "@chriskrogh_";
 export const DEFAULT_DESCRIPTION =
-  "Software engineer building thoughtful products with React, Next.js, and TypeScript.";
+  "Building fun, thoughtful products and experiences with React, Next.js, Expo, and of cours AI.";
 
 const DEFAULT_KEYWORDS = [
   "Chris Krogh",
   "software engineer",
   "React",
   "Next.js",
+  "Expo",
   "TypeScript",
 ];
 
