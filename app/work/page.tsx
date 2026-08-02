@@ -36,37 +36,41 @@ const Page: React.FC = () => {
           <h2>Faire</h2>
         </div>
         <div className="sm:flex justify-between items-end mb-3">
-          <h4>Senior Frontend Engineer</h4>
-          <p>Feb, 2024 - now</p>
+          <h4>Staff Software Engineer</h4>
+          <p>Aug, 2026 - now</p>
         </div>
         <p className="mb-4">
-          As a senior frontend engineer at Faire, I&apos;ve led high-leverage
-          performance work across cart, checkout, PDP, and logged-out
-          discovery. I&apos;ve shipped React Server Component migrations,
-          aggressive data prefetching, static generation infrastructure, and
-          React Compiler adoption that improved core page latency and
-          contributed measurable order-volume wins.
-          <br />
-          <br />
-          I&apos;ve also helped modernize how Faire builds frontend software. I
-          drove the multi-year hooks and MobX migration across the finish line,
-          helped unlock Turbopack and the React Compiler, decomposed product
-          areas out of a deprecated monolith, improved high-traffic CI
-          pipelines, and shared patterns that let other teams move faster
-          without needing me in the room.
-          <br />
-          <br />
-          More recently, I&apos;ve been building the frontend foundation for
-          Faire&apos;s AI and Agentic Commerce work. I created infrastructure for
-          AI-powered prototypes and Faire&apos;s first ChatGPT app, explored
-          AI-assisted shopping experiences for search refinement and product
-          evaluation, and have spent the last four months shaping conversational
-          workflows for discovery, evaluation, and buying.
+          As a staff software engineer at Faire, I&apos;m the frontend lead for a
+          shopping assistant that helps retailers discover and buy on Faire. I
+          partner closely with product and design on what we build and when, and
+          take on the hard technical and UX problems that come with making
+          conversational shopping feel fast, trustworthy, and useful.
         </p>
 
         <div className="sm:flex justify-between items-end mb-3 mt-8">
-          <h4>Frontend Engineer</h4>
-          <p>Apr, 2022 - Feb, 2024</p>
+          <h4>Senior Software Engineer</h4>
+          <p>Feb, 2024 - Aug, 2026</p>
+        </div>
+        <p className="mb-4">
+          As a senior software engineer at Faire, I led high-leverage
+          performance work across cart, checkout, PDP, and logged-out discovery.
+          I shipped React Server Component migrations, aggressive data
+          prefetching, static generation infrastructure, and React Compiler
+          adoption that improved core page latency and contributed measurable
+          order-volume wins.
+          <br />
+          <br />
+          I also helped modernize how Faire builds frontend software. I drove
+          the multi-year hooks and MobX migration across the finish line, helped
+          unlock Turbopack and the React Compiler, decomposed product areas out
+          of a deprecated monolith, improved high-traffic CI pipelines, and
+          shared patterns that let other teams move faster without needing me in
+          the room.
+        </p>
+
+        <div className="sm:flex justify-between items-end mb-3 mt-8">
+          <h4>Software Engineer II</h4>
+          <p>Feb, 2023 - Feb, 2024</p>
         </div>
         <p className="mb-4">
           When I returned full time, I helped turn Next.js from an exploration
@@ -75,11 +79,18 @@ const Page: React.FC = () => {
           first server component page migration to prove the performance upside.
           <br />
           <br />
-          I also helped modernize Faire&apos;s React codebase through hooks,
-          react-query, migration tooling, dashboards, guides, and hundreds of PR
-          reviews. Alongside that platform work, I led major exclusivity
-          milestones and mentored engineers through the patterns that became the
-          foundation for faster product development.
+          Alongside that platform work, I led major exclusivity milestones and
+          mentored engineers through the patterns that became the foundation for
+          faster product development.
+        </p>
+
+        <div className="sm:flex justify-between items-end mb-3 mt-8">
+          <h4>Software Engineer</h4>
+          <p>Apr, 2022 - Feb, 2023</p>
+        </div>
+        <p className="mb-4">
+          I helped modernize Faire&apos;s React codebase through hooks, react-query,
+          migration tooling, dashboards, guides, and hundreds of PR reviews.
         </p>
 
         <div className="sm:flex justify-between items-end mb-3 mt-8">

@@ -34,13 +34,13 @@ export const Work: React.FC = () => {
                 </CardTitle>
               </Link>
             </Button>
-            <CardDescription>Senior Frontend Engineer</CardDescription>
+            <CardDescription>Staff Software Engineer</CardDescription>
           </CardHeader>
           <CardContent>
             <ul className="pl-4" style={{ listStyleType: "square" }}>
               <li className="mb-2 md:mb-0">
-                Building Faire&apos;s AI and Agentic Commerce foundation with
-                AI-powered experiences for discovery, evaluation, and buying
+                Frontend lead for a retailer shopping assistant, partnering with
+                product and design on what to build and when
               </li>
               <li className="mb-2 md:mb-0">
                 Drove frontend modernization through hooks, Turbopack, codebase
