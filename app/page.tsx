@@ -10,12 +10,13 @@ import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "./styles";
 export const metadata: Metadata = createPageMetadata({
   title: SITE_NAME,
   description:
-    "Chris Krogh is a software engineer at Faire building thoughtful product experiences with React, Next.js, Expo, and TypeScript.",
+    "Chris Krogh is a Staff Software Engineer at Faire building thoughtful product experiences with React, Next.js, Expo, and TypeScript.",
   path: "/",
   absoluteTitle: true,
   keywords: [
     "portfolio",
     "product engineering",
+    "Staff Software Engineer",
     "Faire",
     "Vings",
     "React",
