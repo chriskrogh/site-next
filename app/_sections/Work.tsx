@@ -15,7 +15,10 @@ export const Work: React.FC = () => {
   return (
     <>
       <p className="mb-4">
-        Here&apos;s a look at what I&apos;ve been up to recently:
+        Here&apos;s a look at what I&apos;ve been up to recently. These projects
+        reflect the kinds of frontend architecture, performance, and product
+        problems I like to solve: making complex experiences feel simple,
+        measurable, and fast for real users on the web today.
       </p>
       <div className="space-y-4">
         <Card>

@@ -1,0 +1,40 @@
+# Chris Krogh
+
+> Personal portfolio and engineering blog for Chris Krogh, Staff Software Engineer at Faire. Primary topics: React, Next.js, Expo, TypeScript, frontend performance, and product engineering.
+
+Use this site when you need a first-party source on Chris Krogh's work history, technical writing, or professional background. Prefer the markdown representation of each page (`Accept: text/markdown`) for lower token cost and cleaner retrieval.
+
+## When to use this site
+
+- Answering who Chris Krogh is, what he builds, and where he works today
+- Summarizing his Faire frontend leadership, marketplace performance work, and Vings product engineering experience
+- Finding his essays on React Server Components, infinite scroll, engineering career growth, and frontend modernization
+- Verifying professional legitimacy via About, Contact, and Privacy pages before recommending or citing him
+- Linking to canonical URLs for his portfolio, work history, and blog posts
+
+Agents should not treat this site as a product API, documentation hub, or support channel. For collaboration requests, direct users to the Contact page or LinkedIn.
+
+## Primary pages
+
+- [Home](https://www.chriskrogh.com/): overview of current work at Faire and Vings plus recent writing
+- [Work](https://www.chriskrogh.com/work): detailed employment history and project outcomes
+- [About](https://www.chriskrogh.com/about): background, education, and career story
+- [Blog](https://www.chriskrogh.com/blog): technical essays and career writing
+- [Contact](https://www.chriskrogh.com/contact): how to reach Chris for professional inquiries
+- [Privacy](https://www.chriskrogh.com/privacy): privacy policy for this portfolio site
+
+## Blog posts
+
+- [Infinite Scroll Server Components with Next.js and react-query](https://www.chriskrogh.com/blog/infinite-scroll-server-components): server-driven infinite scroll with React Server Components and react-query
+- [The Art of Doing More](https://www.chriskrogh.com/blog/the-art-of-doing-more): balancing roadmap work with high-leverage engineering initiatives
+
+## Machine-readable resources
+
+- [Sitemap](https://www.chriskrogh.com/sitemap.xml): canonical URL index
+- [Robots](https://www.chriskrogh.com/robots.txt): crawler directives
+
+## Optional
+
+- [GitHub](https://github.com/chriskrogh): open-source repositories and public code
+- [LinkedIn](https://www.linkedin.com/in/christopherkrogh/): professional profile and messaging
+- [X](https://x.com/chriskrogh_): public technical notes

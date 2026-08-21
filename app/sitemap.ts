@@ -17,6 +17,18 @@ const staticRoutes: MetadataRoute.Sitemap = [
     priority: 0.7,
   },
   {
+    url: getAbsoluteUrl("/contact"),
+    lastModified: new Date(),
+    changeFrequency: "yearly",
+    priority: 0.6,
+  },
+  {
+    url: getAbsoluteUrl("/privacy"),
+    lastModified: new Date(),
+    changeFrequency: "yearly",
+    priority: 0.5,
+  },
+  {
     url: getAbsoluteUrl("/work"),
     lastModified: new Date(),
     changeFrequency: "yearly",

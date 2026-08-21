@@ -25,6 +25,9 @@ const Page: React.FC = () => {
   return (
     <main className={CONTAINER_CLASSNAME}>
       <div className={CONTENT_CONTAINER_CLASSNAME}>
+        <h1 className="mb-8 text-3xl font-semibold tracking-tight font-heading scroll-m-20">
+          Work
+        </h1>
         <div className="mb-8 flex items-center gap-3">
           <Image
             src="/faire-logo.png"

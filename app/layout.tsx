@@ -3,6 +3,7 @@ import { IBM_Plex_Mono } from "next/font/google";
 
 import { cn } from "@/lib/utils";
 
+import { JsonLd } from "./_components/JsonLd";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Providers } from "./Providers";
@@ -74,10 +75,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"
-        />
+        <JsonLd />
       </head>
       <body
         className={cn(
