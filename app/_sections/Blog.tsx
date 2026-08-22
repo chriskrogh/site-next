@@ -12,7 +12,9 @@ export const Blog: React.FC = async () => {
     <>
       <p className="mb-4">
         I also think about things from time to time, and try to write them down
-        whenever I get a chance.
+        whenever I get a chance. Posts focus on practical frontend engineering:
+        server components, data fetching, performance work, and lessons from
+        shipping product at scale.
       </p>
       <Card>
         <CardContent className="p-6">

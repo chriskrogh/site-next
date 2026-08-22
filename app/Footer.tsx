@@ -21,6 +21,8 @@ export const Footer: React.FC = () => {
         <Link href="https://www.linkedin.com/in/christopherkrogh/">
           linkedin
         </Link>
+        <Link href="/contact">contact</Link>
+        <Link href="/privacy">privacy</Link>
       </div>
     </footer>
   );

@@ -26,6 +26,9 @@ const Page: React.FC = () => {
   return (
     <main className={CONTAINER_CLASSNAME}>
       <div className={cn(CONTENT_CONTAINER_CLASSNAME, "mb-6")}>
+        <h1 className="mb-6 text-3xl font-semibold tracking-tight font-heading scroll-m-20">
+          About
+        </h1>
         <Content />
         <Album />
       </div>

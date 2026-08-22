@@ -20,6 +20,9 @@ const Page: React.FC = () => {
   return (
     <main className={CONTAINER_CLASSNAME}>
       <div className={CONTENT_CONTAINER_CLASSNAME}>
+        <h1 className="mb-6 text-3xl font-semibold tracking-tight font-heading scroll-m-20">
+          Blog
+        </h1>
         {POSTS.map((post, index) => (
           <div key={post._id}>
             {index > 0 && <hr className="mb-2" />}
