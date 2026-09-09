@@ -10,11 +10,14 @@ export const Footer: React.FC = () => {
     <footer
       className={cn(
         CONTAINER_CLASSNAME,
-        "absolute bottom-0 left-0 right-0 border-t-2 h-[64px] bg-background"
+        "absolute bottom-0 left-0 right-0 border-t-2 min-h-[64px] items-center py-3 bg-background"
       )}
     >
       <div
-        className={cn(CONTENT_CONTAINER_CLASSNAME, "flex items-center gap-6")}
+        className={cn(
+          CONTENT_CONTAINER_CLASSNAME,
+          "flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-6"
+        )}
       >
         <Link href="https://github.com/chriskrogh">github</Link>
         <Link href="https://x.com/chriskrogh_">twitter</Link>

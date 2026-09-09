@@ -9,15 +9,16 @@ export function useMDXComponents(): MDXComponents {
   return {
     img: (props: ComponentPropsWithoutRef<"img">) => {
       const { alt, className, ...rest } = props;
+      const baseClassName = "max-w-full h-auto";
 
       if (isGrowthGraph(props.src)) {
         return (
-          <span className="block overflow-hidden rounded-lg bg-foreground dark:bg-transparent">
+          <span className="block max-w-full overflow-hidden rounded-lg bg-foreground dark:bg-transparent">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               {...rest}
               alt={alt ?? ""}
-              className={["w-full dark:mix-blend-screen", className]
+              className={[baseClassName, "w-full dark:mix-blend-screen", className]
                 .filter(Boolean)
                 .join(" ")}
             />
@@ -26,7 +27,13 @@ export function useMDXComponents(): MDXComponents {
       }
 
       // eslint-disable-next-line @next/next/no-img-element
-      return <img {...rest} alt={alt ?? ""} className={className} />;
+      return (
+        <img
+          {...rest}
+          alt={alt ?? ""}
+          className={[baseClassName, className].filter(Boolean).join(" ")}
+        />
+      );
     },
   };
 }
