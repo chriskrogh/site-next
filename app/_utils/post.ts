@@ -54,6 +54,19 @@ export const allPosts: Post[] = [
       "technical leadership",
     ],
   }),
+  createPost("blog/what-changes-my-slope-next", {
+    title: "What Changes My Slope Next?",
+    description:
+      "A mental model for growth across career, health, and building products: optimize for slope over position, backtrack from the destination, increase surface area for luck, own things that compound, and treat failure as part of the process.",
+    date: "2026-09-08T17:00:00Z",
+    keywords: [
+      "career growth",
+      "personal growth",
+      "engineering career",
+      "mental models",
+      "compounding",
+    ],
+  }),
 ];
 
 export const getBlogPostSlug = (post: Post) =>

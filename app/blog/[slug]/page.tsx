@@ -20,6 +20,8 @@ const POST_COMPONENTS = {
       .default,
   "the-art-of-doing-more": async () =>
     (await import("@/posts/blog/the-art-of-doing-more.mdx")).default,
+  "what-changes-my-slope-next": async () =>
+    (await import("@/posts/blog/what-changes-my-slope-next.mdx")).default,
 } satisfies Record<string, () => Promise<ComponentType>>;
 type BlogPostSlug = keyof typeof POST_COMPONENTS;
 

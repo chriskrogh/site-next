@@ -27,6 +27,7 @@ Agents should not treat this site as a product API, documentation hub, or suppor
 
 - [Infinite Scroll Server Components with Next.js and react-query](https://www.chriskrogh.com/blog/infinite-scroll-server-components): server-driven infinite scroll with React Server Components and react-query
 - [The Art of Doing More](https://www.chriskrogh.com/blog/the-art-of-doing-more): balancing roadmap work with high-leverage engineering initiatives
+- [What Changes My Slope Next?](https://www.chriskrogh.com/blog/what-changes-my-slope-next): a mental model for growth across career, health, and building products
 
 ## Machine-readable resources
 
