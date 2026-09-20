@@ -17,8 +17,12 @@ describe("getMarkdownForPath", () => {
 
   it("returns markdown for trust anchor pages", () => {
     expect(getMarkdownForPath("/contact")?.content).toContain("# Contact");
-    expect(getMarkdownForPath("/privacy")?.content).toContain("# Privacy Policy");
-    expect(getMarkdownForPath("/about")?.content).toContain("# About Chris Krogh");
+    expect(getMarkdownForPath("/privacy")?.content).toContain(
+      "# Privacy Policy"
+    );
+    expect(getMarkdownForPath("/about")?.content).toContain(
+      "# About Chris Krogh"
+    );
   });
 
   it("returns markdown summaries for blog posts", () => {
@@ -29,6 +33,14 @@ describe("getMarkdownForPath", () => {
     expect(response?.content).toContain(
       "Infinite Scroll Server Components with Next.js and react-query"
     );
+  });
+
+  it("keeps private posts out of the index but available by direct path", () => {
+    const index = getMarkdownForPath("/blog");
+    const privatePost = getMarkdownForPath("/blog/what-pops-built");
+
+    expect(index?.content).not.toContain("What Pops Built");
+    expect(privatePost?.content).toContain("What Pops Built");
   });
 });
 

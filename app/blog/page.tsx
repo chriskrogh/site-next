@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import { getAllBlogPosts } from "@/app/_utils/post";
+import { getPublicBlogPosts } from "@/app/_utils/post";
 import { createPageMetadata } from "@/app/_utils/seo";
 
 import { BlogListItem } from "../_components/BlogListItem";
 import { CONTAINER_CLASSNAME, CONTENT_CONTAINER_CLASSNAME } from "../styles";
 
-const POSTS = getAllBlogPosts();
+const POSTS = getPublicBlogPosts();
 
 export const metadata: Metadata = createPageMetadata({
   title: "Blog",

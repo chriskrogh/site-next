@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { getAllBlogPosts } from "./_utils/post";
+import { getPublicBlogPosts } from "./_utils/post";
 import { getAbsoluteUrl } from "./_utils/seo";
 
 const staticRoutes: MetadataRoute.Sitemap = [
@@ -44,7 +44,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
 
 const sitemap = (): MetadataRoute.Sitemap => [
   ...staticRoutes,
-  ...getAllBlogPosts().map((post) => ({
+  ...getPublicBlogPosts().map((post) => ({
     url: getAbsoluteUrl(post.url),
     lastModified: post.date ? new Date(post.date) : new Date(),
     changeFrequency: "monthly" as const,

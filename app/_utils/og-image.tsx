@@ -69,6 +69,7 @@ type OgCardProps = {
   description: string;
   eyebrow?: string;
   footer?: string;
+  badge?: string;
 };
 
 export const OgCard = ({
@@ -76,6 +77,7 @@ export const OgCard = ({
   description,
   eyebrow,
   footer,
+  badge,
 }: OgCardProps) => (
   <div
     style={{
@@ -97,16 +99,45 @@ export const OgCard = ({
         gap: 20,
       }}
     >
-      {eyebrow ? (
+      {eyebrow || badge ? (
         <div
           style={{
-            color: "#94a3b8",
-            fontSize: 24,
-            fontWeight: 600,
-            letterSpacing: -1,
+            alignItems: "center",
+            display: "flex",
+            justifyContent: "space-between",
           }}
         >
-          {eyebrow}
+          {eyebrow ? (
+            <span
+              style={{
+                color: "#94a3b8",
+                fontSize: 24,
+                fontWeight: 600,
+                letterSpacing: -1,
+              }}
+            >
+              {eyebrow}
+            </span>
+          ) : (
+            <span />
+          )}
+          {badge ? (
+            <span
+              style={{
+                background: "#78350f",
+                border: "1px solid #f59e0b",
+                borderRadius: 999,
+                color: "#fef3c7",
+                fontSize: 20,
+                fontWeight: 600,
+                letterSpacing: 1,
+                padding: "8px 16px",
+                textTransform: "uppercase",
+              }}
+            >
+              {badge}
+            </span>
+          ) : null}
         </div>
       ) : null}
       <div

@@ -29,6 +29,7 @@ const Image = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const title = post?.title ?? SITE_NAME;
   const description = post?.description ?? DEFAULT_DESCRIPTION;
   const footer = post?.date ? format(new Date(post.date), "PPP") : "Blog";
+  const badge = post?.private ? "Private" : undefined;
 
   return new ImageResponse(
     (
@@ -37,11 +38,14 @@ const Image = async ({ params }: { params: Promise<{ slug: string }> }) => {
         description={description}
         eyebrow="Blog"
         footer={footer}
+        badge={badge}
       />
     ),
     {
       ...OG_IMAGE_SIZE,
-      fonts: await loadOgFonts(`${title} ${description} Blog ${footer}`),
+      fonts: await loadOgFonts(
+        `${title} ${description} Blog ${footer} ${badge ?? ""}`
+      ),
     }
   );
 };

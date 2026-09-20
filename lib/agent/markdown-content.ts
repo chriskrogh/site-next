@@ -1,4 +1,8 @@
-import { getAllBlogPosts, getBlogPostBySlug } from "@/app/_utils/post";
+import {
+  getAllBlogPosts,
+  getBlogPostBySlug,
+  getPublicBlogPosts,
+} from "@/app/_utils/post";
 import {
   AUTHOR_NAME,
   DEFAULT_DESCRIPTION,
@@ -138,11 +142,10 @@ Last updated: August 2026.
 `;
 
 const getBlogIndexMarkdown = () => {
-  const posts = getAllBlogPosts()
+  const posts = getPublicBlogPosts()
     .sort(
       (left, right) =>
-        new Date(right.date ?? 0).getTime() -
-        new Date(left.date ?? 0).getTime()
+        new Date(right.date ?? 0).getTime() - new Date(left.date ?? 0).getTime()
     )
     .map((post) => {
       const slug = post._raw.flattenedPath.replace("blog/", "");
@@ -214,7 +217,9 @@ export const KNOWN_PAGE_PATHS = new Set([
   ),
 ]);
 
-export const getMarkdownForPath = (pathname: string): MarkdownResponse | null => {
+export const getMarkdownForPath = (
+  pathname: string
+): MarkdownResponse | null => {
   const normalizedPath =
     pathname.endsWith("/") && pathname.length > 1
       ? pathname.slice(0, -1)

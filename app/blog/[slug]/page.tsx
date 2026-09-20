@@ -22,6 +22,8 @@ const POST_COMPONENTS = {
     (await import("@/posts/blog/the-art-of-doing-more.mdx")).default,
   "what-changes-my-slope-next": async () =>
     (await import("@/posts/blog/what-changes-my-slope-next.mdx")).default,
+  "what-pops-built": async () =>
+    (await import("@/posts/blog/what-pops-built.mdx")).default,
 } satisfies Record<string, () => Promise<ComponentType>>;
 type BlogPostSlug = keyof typeof POST_COMPONENTS;
 
@@ -71,10 +73,19 @@ const Page = async ({ params }: Props) => {
     <main className={CONTAINER_CLASSNAME}>
       <div className={CONTENT_CONTAINER_CLASSNAME}>
         <h2 className="mb-4">{post.title}</h2>
-        {post.date ? (
-          <h5 className="mb-4 text-slate-700 dark:text-slate-300">
-            {format(new Date(post.date), "PPP")}
-          </h5>
+        {post.date || post.private ? (
+          <div className="mb-4 flex items-center gap-3">
+            {post.date ? (
+              <h5 className="text-slate-700 dark:text-slate-300">
+                {format(new Date(post.date), "PPP")}
+              </h5>
+            ) : null}
+            {post.private ? (
+              <span className="rounded-full border border-amber-500/60 bg-amber-100 px-2.5 py-0.5 text-xs font-semibold tracking-wide text-amber-900 uppercase dark:bg-amber-950 dark:text-amber-200">
+                Private
+              </span>
+            ) : null}
+          </div>
         ) : null}
         <RecordHit slug={getBlogPostSlug(post)} />
         <Content />

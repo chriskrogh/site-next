@@ -88,5 +88,11 @@ export const createBlogPostMetadata = (post: Post): Metadata => {
       description,
       creator: TWITTER_HANDLE,
     },
+    robots: post.private
+      ? {
+          index: false,
+          follow: false,
+        }
+      : undefined,
   };
 };

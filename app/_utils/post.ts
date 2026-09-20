@@ -8,11 +8,15 @@ export type Post = {
   description?: string;
   date?: string;
   keywords?: string[];
+  private?: boolean;
 };
 
 const createPost = (
   flattenedPath: string,
-  metadata: Pick<Post, "title" | "description" | "date" | "keywords">
+  metadata: Pick<
+    Post,
+    "title" | "description" | "date" | "keywords" | "private"
+  >
 ): Post => ({
   _id: flattenedPath,
   _raw: {
@@ -23,6 +27,7 @@ const createPost = (
   description: metadata.description,
   date: metadata.date,
   keywords: metadata.keywords,
+  private: metadata.private,
 });
 
 export const allPosts: Post[] = [
@@ -67,6 +72,14 @@ export const allPosts: Post[] = [
       "compounding",
     ],
   }),
+  createPost("blog/what-pops-built", {
+    title: "What Pops Built",
+    description:
+      "Remembering my grandpa, Pops: a builder, storyteller, devoted husband, and relentlessly resourceful man who loved his family more than anything.",
+    date: "2026-09-20T17:00:00Z",
+    private: true,
+    keywords: ["Pops", "family", "grandfather", "remembrance", "life lessons"],
+  }),
 ];
 
 export const getBlogPostSlug = (post: Post) =>
@@ -74,6 +87,9 @@ export const getBlogPostSlug = (post: Post) =>
 
 export const getAllBlogPosts = () =>
   allPosts.filter((post) => post._raw.flattenedPath.includes("blog/"));
+
+export const getPublicBlogPosts = () =>
+  getAllBlogPosts().filter((post) => !post.private);
 
 export const getBlogPostBySlug = (slug: string) =>
   getAllBlogPosts().find((post) => getBlogPostSlug(post) === slug);
